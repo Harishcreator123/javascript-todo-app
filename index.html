@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Organize your day, one task at a time</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="app-header">
+      <h1 class="app-title">TaskFlow</h1>
+      <p class="app-subtitle">Organize your day, one task at a time.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Task Input Section -->
+      <section class="task-input-section" aria-labelledby="input-heading">
+        <h2 id="input-heading" class="sr-only">Add a New Task</h2>
+        <form id="task-form" class="task-form" novalidate>
+          <div class="input-wrapper">
+            <label for="task-input" class="sr-only">Task description</label>
+            <input
+              type="text"
+              id="task-input"
+              name="taskText"
+              class="task-input"
+              placeholder="What needs to be done?"
+              autocomplete="off"
+              required
+            >
+          </div>
+          <button type="submit" id="add-task-btn" class="btn btn-primary">
+            Add Task
+          </button>
+        </form>
+      </section>
+
+      <!-- Task Filters Section -->
+      <section class="task-filters-section" aria-labelledby="filter-heading">
+        <h2 id="filter-heading" class="sr-only">Filter Tasks</h2>
+        <div class="filter-group" role="group" aria-label="Task filters">
+          <button
+            type="button"
+            class="filter-btn active"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            All <span class="filter-count" id="count-all">0</span>
+          </button>
+          <button
+            type="button"
+            class="filter-btn"
+            data-filter="active"
+            aria-pressed="false"
+          >
+            Active <span class="filter-count" id="count-active">0</span>
+          </button>
+          <button
+            type="button"
+            class="filter-btn"
+            data-filter="completed"
+            aria-pressed="false"
+          >
+            Completed <span class="filter-count" id="count-completed">0</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Task List Section -->
+      <section class="task-list-section" aria-labelledby="list-heading">
+        <h2 id="list-heading" class="sr-only">Your Task List</h2>
+
+        <!-- Empty State Message -->
+        <div id="empty-state" class="empty-state" role="status">
+          <p class="empty-state-title">No tasks found</p>
+          <p class="empty-state-text">Add a task above to get started organizing your day!</p>
+        </div>
+
+        <!-- Dynamic Task List Container -->
+        <ul id="task-list" class="task-list" aria-live="polite">
+          <!-- Tasks will be injected dynamically via JavaScript -->
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+      <div class="task-stats">
+        <span class="stat-item">
+          Total: <strong id="total-tasks-count">0</strong>
+        </span>
+        <span class="stat-divider" aria-hidden="true">|</span>
+        <span class="stat-item">
+          Completed: <strong id="completed-tasks-count">0</strong>
+        </span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
